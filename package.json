@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@slnsw/react-sheet-music": "^0.0.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@tonaljs/note": "^4.6.0",
+    "@tonaljs/tonal": "^4.6.0",
+    "ml5": "0.1.1",
+    "pitchfinder": "^2.3.1",
     "react": "^17.0.2",
+    "react-abc": "^0.4.0",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
