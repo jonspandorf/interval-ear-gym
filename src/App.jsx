@@ -1,6 +1,8 @@
 import PitchDetector from "./components/pitchDetector";
 import IntervalChallenge from './components/IntervalChallenge'
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import ChallengeForm from "./components/challengeForm";
 
 function App() {
 
@@ -10,7 +12,12 @@ function App() {
 
   return (
     <div>
-      <IntervalChallenge/>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={ChallengeForm} />
+          <Route exact path='/challenge' component={IntervalChallenge} />
+        </Switch>
+      </Router>
     </div>
   );
 }

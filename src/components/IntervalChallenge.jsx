@@ -11,12 +11,13 @@ const IntervalChallenge = () => {
 
     const [direction, setDirection] = useState('');
     const [interval, setInterval] = useState('');
-    const [givenPitch, setGivenPitch] = useState('A');
+    const [givenPitch, setGivenPitch] = useState('A4');
     const [firstInt, setFirstInt] = useState(false);
     const [notation, setNotation] = useState(`X:1\nM:C\nL:1/4\n${givenPitch}|\n`)
     const [isCorrect, setIsCorrect] = useState(null);
     const [target, setTarget] = useState('');
     const [pitchToCompare, setPitchToCompare] = useState('');
+    const [challengeFinished, setChallengeFinished] = useState(false);
 
     const setNewTargetPitch = (pitch) => {
       if (pitch === target) setGivenPitch(pitch);
@@ -42,12 +43,12 @@ const IntervalChallenge = () => {
     function identifyInt (userPitch) {
 
         if (Interval.distance(pitchToCompare, userPitch) === interval) {
+            console.log(pitchToCompare, userPitch)
            console.log('correct')
+           if (target === userPitch) setChallengeFinished(true)
         }
 
       }
-
-
 
     return(
         <>
@@ -59,7 +60,7 @@ const IntervalChallenge = () => {
         <Notation 
             notation={notation}
         />
-            <PitchDetector identifyInt={identifyInt}/>
+            <PitchDetector challengeFinished={challengeFinished} pitchToCompare={pitchToCompare} identifyInt={identifyInt}/>
         </>
     )
 }
